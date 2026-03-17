@@ -1,24 +1,30 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Hero from './Hero';
-import Services from './Services';
-import Process from './Process';
-import Testimonials from './Testimonials';
-import FAQ from './FAQ';
-import Contact from './Contact';
-import Footer from './Footer';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { Navbar, Footer } from './layout';
+import { Home, CompanyApply } from './pages';
+import { ProfessionalApply } from './src/pages/ProfessionalApply';
+import { HowWeWorkPage } from './src/pages/HowWeWork';
+import { TrainingPage } from './src/pages/Training';
 
 function App() {
+  const location = useLocation();
+  const isApplyPage = location.pathname.includes('/empresas/aplicar') || location.pathname.includes('/profesionales/aplicar') || location.pathname.includes('/como-trabajamos');
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <Process />
-      <Testimonials />
-      <FAQ />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-background">
+      {!isApplyPage && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/empresas/aplicar" element={<CompanyApply />} />
+        <Route path="/profesionales/aplicar" element={<ProfessionalApply />} />
+        <Route path="/como-trabajamos" element={<HowWeWorkPage />} />
+        <Route path="/formacion" element={<TrainingPage />} />
+      </Routes>
+      {!isApplyPage && <Footer />}
     </div>
   );
 }

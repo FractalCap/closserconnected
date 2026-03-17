@@ -1,1 +1,7 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+  "name": "closserconnect",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

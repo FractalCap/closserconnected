@@ -1,57 +1,76 @@
-# React + TypeScript + Vite
+# Closer Connected
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Este es el repositorio del proyecto **Closer Connected**, una plataforma web desarrollada con React, TypeScript y Vite, diseñada para conectar empresas y talento en LATAM y EE.UU.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Estructura del Proyecto
 
-## Expanding the ESLint configuration
+El proyecto ha sido reorganizado para tener una estructura **totalmente plana** en la raíz. Todos los componentes, páginas y utilidades se encuentran directamente en la carpeta principal para facilitar el acceso y evitar anidamientos complejos.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Archivos Principales
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- `App.tsx`: Componente principal de la aplicación y configuración de rutas.
+- `main.tsx`: Punto de entrada de la aplicación.
+- `pages.tsx`: Contiene las páginas `Home` y `CompanyApply`.
+- `layout.tsx`: Contiene `Navbar` y `Footer`.
+- `sections.tsx`: Contiene todas las secciones de la Landing Page.
+- `forms.tsx`: Contiene los formularios de la aplicación.
+- `components.tsx`: Componentes UI reutilizables.
+- `utils.ts`: Utilidades y hooks.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instalación y Ejecución
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Para ejecutar este proyecto localmente, sigue estos pasos:
 
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1.  **Clonar el repositorio** (o descargar la carpeta):
+    Asegúrate de tener la carpeta del proyecto en tu máquina.
+
+2.  **Instalar dependencias**:
+    Abre una terminal en la carpeta raíz del proyecto y ejecuta:
+    ```bash
+    npm install
+    ```
+
+3.  **Ejecutar el servidor de desarrollo**:
+    Para iniciar la aplicación en modo de desarrollo, ejecuta:
+    ```bash
+    npm run dev
+    ```
+    Esto abrirá la aplicación en tu navegador (por defecto en `http://localhost:5173/`).
+
+4.  **Construir para producción**:
+    Para generar los archivos estáticos optimizados para producción:
+    ```bash
+    npm run build
+    ```
+    Esto generará una carpeta `dist` con los archivos listos para desplegar.
+
+## Despliegue en GitHub Pages
+
+Para desplegar en GitHub Pages:
+
+1.  Sube este repositorio a GitHub.
+2.  Ve a la pestaña **Settings** > **Pages**.
+3.  En **Source**, selecciona **GitHub Actions**.
+4.  GitHub detectará automáticamente que es un proyecto Vite y sugerirá un flujo de trabajo.
+5.  O alternativamente, puedes usar el paquete `gh-pages` para desplegar la carpeta `dist` a la rama `gh-pages`.
+
+## Despliegue en Vercel
+
+Este proyecto está configurado para desplegarse fácilmente en [Vercel](https://vercel.com/).
+
+1.  Sube este repositorio a GitHub.
+2.  Importa el proyecto en Vercel.
+3.  Vercel detectará automáticamente que es un proyecto **Vite**.
+4.  La configuración de construcción (`Build Command`) debería ser `npm run build`.
+5.  El directorio de salida (`Output Directory`) debería ser `dist`.
+
+## Tecnologías Utilizadas
+
+- **React**: Biblioteca para construir interfaces de usuario.
+- **TypeScript**: Superset de JavaScript con tipado estático.
+- **Vite**: Herramienta de construcción rápida y servidor de desarrollo.
+- **Tailwind CSS**: Framework de CSS para estilizado rápido.
+- **React Router**: Enrutamiento para aplicaciones de una sola página (SPA).
+- **Lucide React**: Iconos SVG.

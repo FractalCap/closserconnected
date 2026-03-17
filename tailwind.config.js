@@ -11,33 +11,35 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+      },
       colors: {
         brand: {
-          950: "#020617",
-          900: "#0f172a", // slate-900 - Deep corporate blue/black
-          800: "#1e293b", // slate-800
-          700: "#334155", // slate-700
-          600: "#475569", // slate-600
-          500: "#64748b", // slate-500
-          400: "#94a3b8", // slate-400
-          300: "#cbd5e1", // slate-300
-          200: "#e2e8f0", // slate-200
-          100: "#f1f5f9", // slate-100
-          50: "#f8fafc",  // slate-50
+          900: "var(--cc-text)", // Was #1E3A8A
+          800: "var(--cc-primary-dark)", // Was #1e40af
+          700: "var(--cc-primary-dark)", // Was #1d4ed8
+          600: "var(--cc-primary)", // Was #2563eb
+          500: "#3b82f6", // Keeping intermediate shades for gradients/charts if needed
+          400: "#60A5FA",
+          300: "#93c5fd",
+          200: "#bfdbfe",
+          100: "#dbeafe",
+          50: "#eff6ff",
         },
         accent: {
-          DEFAULT: "#2563eb", // blue-600 - Professional Blue
-          hover: "#1d4ed8",   // blue-700
-          light: "#dbeafe",   // blue-100
+          DEFAULT: "var(--cc-accent)", // Was #10B981
+          hover: "#059669",
+          500: "var(--cc-accent)", // Alias for consistency
+          600: "#059669", // Darker shade
         },
+        // Semantic aliases
+        border: "var(--cc-border)",
+        background: "var(--cc-bg)",
+        "background-soft": "var(--cc-bg-soft)",
+        muted: "var(--cc-muted)",
       },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      boxShadow: {
-        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
-        'glow': '0 0 15px rgba(37, 99, 235, 0.2)',
-      }
     },
   },
   plugins: [
